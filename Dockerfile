@@ -19,7 +19,7 @@ RUN dpkg --add-architecture i386  && \
  echo 'cd ' >>/tu.sh   && \
  echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/tu.sh   && \
  echo 'cd /noVNC-1.2.0' >>/tu.sh   && \
- echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/tu.sh  
+ echo './utils/launch.sh  --vnc localhost:7900 --listen 8900 ' >>/tu.sh  && \
  chmod 755 /tu.sh
 EXPOSE 8900
 CMD  /tu.sh 
