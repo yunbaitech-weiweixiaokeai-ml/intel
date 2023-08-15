@@ -9,8 +9,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt install  python3-dev python3-pip ffmpeg w
  echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup   && \
  chmod 600 $HOME/.vnc/passwd   && \
  chmod 755 $HOME/.vnc/xstartup   && \
- wget https://github.com/yunbaitech-weiweixiaokeai-ml/actions_shell/raw/master/cloudflared && \
- wget https://github.com/yunbaitech-weiweixiaokeai-ml/actions_shell/raw/master/ttyd && \
+ wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/cloudflared && \
+ wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/ttyd && \
  echo './cloudflared update' >>/tu.sh && \
  echo 'touch cf.log' >>/tu.sh && \
  echo 'nohup ./ttyd -i 127.0.0.1 bash &>/dev/null & disown' >>/tu.sh && \
