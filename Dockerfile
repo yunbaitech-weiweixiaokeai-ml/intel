@@ -5,6 +5,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt install  python3-dev python3-pip ffmpeg w
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz  
 RUN wget https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/cloudflared 
 RUN wget https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/ttyd && \
+ touch cf.log && \
  chmod +x cloudflared && \
  chmod +x ttyd && \
  tar -xvf v1.2.0.tar.gz  && \
@@ -14,7 +15,6 @@ RUN wget https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_
  chmod 600 $HOME/.vnc/passwd   && \
  chmod 755 $HOME/.vnc/xstartup   && \
  echo './cloudflared update' >>/tu.sh && \
- echo 'touch cf.log' >>/tu.sh && \
  echo 'nohup ./ttyd -i 127.0.0.1 bash &>/dev/null & disown' >>/tu.sh && \
  echo 'nohup ./cloudflared tunnel --url http://127.0.0.1:7681 &> ./cf.log & disown' >>/tu.sh && \
  echo 'whoami ' >>/tu.sh   && \
