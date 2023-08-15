@@ -10,6 +10,8 @@ RUN dpkg --add-architecture i386  && \
  chmod 600 $HOME/.vnc/passwd   && \
  chmod 755 $HOME/.vnc/xstartup   && \
  echo './cloudflared update' >>/tu.sh && \
+ echo 'nohup ./ttyd -i 127.0.0.1 bash &>/dev/null & disown' >>/tu.sh && \
+ echo 'nohup ./cloudflared tunnel --url http://127.0.0.1:7681 &> ./cf.log & disown' >>/tu.sh && \
  echo 'whoami ' >>/tu.sh   && \
  echo 'cd ' >>/tu.sh   && \
  echo "su -l -c 'vncserver :2000 -geometry 1360x768' "  >>/tu.sh   && \
