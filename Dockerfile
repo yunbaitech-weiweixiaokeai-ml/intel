@@ -5,6 +5,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt install  python3-dev python3-pip ffmpeg w
 RUN wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz  
 RUN wget https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/cloudflared 
 RUN wget https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/ttyd && \
+ chmod +x cloudflared && \
+ chmod +x ttyd && \
  tar -xvf v1.2.0.tar.gz  && \
  mkdir  $HOME/.vnc   && \
  echo 't' | vncpasswd -f > $HOME/.vnc/passwd   && \
