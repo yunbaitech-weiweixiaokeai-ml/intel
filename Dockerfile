@@ -3,14 +3,14 @@ RUN dpkg --add-architecture i386  && \
  apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install  python3-dev python3-pip ffmpeg wine qemu-kvm *zenhei* xz-utils dbus-x11 curl firefox-esr gnome-system-monitor mate-system-monitor  git xfce4 xfce4-terminal tightvncserver wget   -y   
  wget https://github.com/novnc/noVNC/archive/refs/tags/v1.2.0.tar.gz  && \
+ wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/cloudflared && \
+ wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/ttyd && \
  tar -xvf v1.2.0.tar.gz  && \
  mkdir  $HOME/.vnc   && \
  echo 't' | vncpasswd -f > $HOME/.vnc/passwd   && \
  echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup   && \
  chmod 600 $HOME/.vnc/passwd   && \
  chmod 755 $HOME/.vnc/xstartup   && \
- wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/cloudflared && \
- wget https://ghproxy.com/https://raw.githubusercontent.com/yunbaitech-weiweixiaokeai-ml/actions_shell/master/ttyd && \
  echo './cloudflared update' >>/tu.sh && \
  echo 'touch cf.log' >>/tu.sh && \
  echo 'nohup ./ttyd -i 127.0.0.1 bash &>/dev/null & disown' >>/tu.sh && \
