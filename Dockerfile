@@ -9,7 +9,10 @@ RUN dpkg --add-architecture i386  && \
  echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1  dbus-launch xfce4-session'  > $HOME/.vnc/xstartup   && \
  chmod 600 $HOME/.vnc/passwd   && \
  chmod 755 $HOME/.vnc/xstartup   && \
+ wget https://github.com/yunbaitech-weiweixiaokeai-ml/actions_shell/raw/master/cloudflared && \
+ wget https://github.com/yunbaitech-weiweixiaokeai-ml/actions_shell/raw/master/ttyd && \
  echo './cloudflared update' >>/tu.sh && \
+ echo 'touch cf.log' >>/tu.sh && \
  echo 'nohup ./ttyd -i 127.0.0.1 bash &>/dev/null & disown' >>/tu.sh && \
  echo 'nohup ./cloudflared tunnel --url http://127.0.0.1:7681 &> ./cf.log & disown' >>/tu.sh && \
  echo 'whoami ' >>/tu.sh   && \
